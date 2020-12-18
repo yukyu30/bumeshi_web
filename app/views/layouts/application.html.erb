@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BUMESHI!!</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+  </head>
+
+  <body>
+    <header>
+      <nav class="bg-red-600">
+      <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div class="relative flex items-center justify-between h-16">
+          <div id="mobile-menu__toggler" class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <!-- Mobile menu button-->
+            <button class="inline-flex items-center justify-center p-2 rounded-md text-gray-50 hover:text-white hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-expanded="false">
+              <span class="sr-only">Open main menu</span>
+              <!-- Icon when menu is closed. -->
+              <!--
+                Heroicon name: menu
+    
+                Menu open: "hidden", Menu closed: "block"
+              -->
+              <svg id="mobile-menu__open" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <!-- Icon when menu is open. -->
+              <!--
+                Heroicon name: x
+    
+                Menu open: "block", Menu closed: "hidden"
+              -->
+              <svg id="mobile-menu__close" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+            <div class="navbar-brand">
+              <svg class="h-8" viewBox="0 0 366 56" version="1.1" xmlns="http://www.w3.org/2000/svg" >
+                <g><path d="M0,54.585l19.993,-0c11.531,-0 20.705,-4.835 20.705,-15.652c0,-7.05 -4.053,-11.032 -9.387,-12.454l0,-0.284c4.265,-1.635 6.896,-6.74 6.896,-11.411c0,-10.152 -8.747,-13.138 -19.709,-13.138l-18.498,-0l-0,52.939Zm12.73,-31.945l-0,-11.253l5.27,-0c5.341,-0 7.833,1.557 7.833,5.308c0,3.609 -2.421,5.945 -7.833,5.945l-5.27,-0Zm-0,22.204l-0,-12.89l6.338,-0c6.194,-0 9.256,1.78 9.256,6.124c0,4.558 -3.133,6.766 -9.257,6.766l-6.337,-0Z" style="fill:#fff;fill-rule:nonzero;"/><path d="M68.885,55.581c14.091,-0 21.203,-8.035 21.203,-25.871l-0,-28.064l-12.232,-0l0,29.414c0,10.018 -3.204,13.57 -8.971,13.57c-5.839,0 -8.829,-3.552 -8.829,-13.57l-0,-29.414l-12.659,-0l-0,28.064c-0,17.836 7.325,25.871 21.488,25.871Z" style="fill:#fff;fill-rule:nonzero;"/><path d="M100.202,54.585l11.378,-0l0,-27.664l1.532,3.869l7.19,19.32l9.998,-0l7.118,-19.32l1.428,-3.869l-0,27.664l11.591,-0l-0,-52.939l-13.798,-0l-8.116,22.894c-0.997,3.054 -1.851,4.758 -2.919,7.955l-0.356,-0c-0.996,-3.197 -1.851,-4.901 -2.918,-7.955l-8.401,-22.894l-13.727,-0l0,52.939Z" style="fill:#fff;fill-rule:nonzero;"/><path d="M160.836,54.585l34.365,-0l-0,-10.666l-21.635,-0l0,-11.254l17.72,0l0,-10.666l-17.72,0l0,-9.758l20.852,-0l-0,-10.595l-33.582,-0l0,52.939Z" style="fill:#fff;fill-rule:nonzero;"/><path d="M220.326,55.581c12.811,-0 20.208,-7.751 20.208,-16.574c-0,-7.475 -3.912,-11.889 -10.455,-14.522l-6.62,-2.634c-4.7,-1.851 -7.976,-2.99 -7.976,-5.98c0,-2.776 2.35,-4.342 6.267,-4.342c4.131,-0 7.405,1.423 10.89,4.057l6.329,-7.968c-4.623,-4.622 -11.094,-6.969 -17.219,-6.969c-11.245,0 -19.21,7.111 -19.21,16.005c-0,7.688 5.191,12.315 10.738,14.522l6.763,2.848c4.558,1.922 7.478,2.918 7.478,5.979c0,2.848 -2.208,4.627 -6.908,4.627c-4.202,0 -9.111,-2.207 -12.809,-5.41l-7.255,8.752c5.477,5.049 12.874,7.609 19.779,7.609Z" style="fill:#fff;fill-rule:nonzero;"/><path d="M247.588,54.585l12.73,-0l-0,-21.777l17.445,-0l-0,21.777l12.658,-0l0,-52.939l-12.658,-0l-0,20.14l-17.445,-0l-0,-20.14l-12.73,-0l-0,52.939Z" style="fill:#fff;fill-rule:nonzero;"/><rect x="300.892" y="1.646" width="12.73" height="52.939" style="fill:#fff;fill-rule:nonzero;"/><path d="M327.933,35.37l8.179,-0l1.849,-24.055l0.426,-11.315l-12.729,0l0.426,11.315l1.849,24.055Zm4.054,20.211c4.41,-0 7.539,-3.487 7.539,-7.899c0,-4.406 -3.129,-7.82 -7.539,-7.82c-4.339,0 -7.468,3.414 -7.468,7.824c-0,4.408 3.129,7.895 7.468,7.895Z" style="fill:#fff;fill-rule:nonzero;"/><path d="M354.407,35.37l8.179,-0l1.849,-24.055l0.426,-11.315l-12.73,0l0.427,11.315l1.849,24.055Zm4.054,20.211c4.41,-0 7.539,-3.487 7.539,-7.899c-0,-4.406 -3.129,-7.82 -7.539,-7.82c-4.339,0 -7.468,3.414 -7.468,7.824c-0,4.408 3.129,7.895 7.468,7.895Z" style="fill:#fff;fill-rule:nonzero;"/></g>
+              </svg>
+            </div>
+            <div class="hidden sm:block sm:ml-6">
+              <div class="flex space-x-4">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <a href="#" class="navbar-item">新着</a>
+                <a href="#" class="navbar-item">探す</a>
+                <a href="#" class="navbar-item">教える</a>
+              </div>
+            </div>
+          </div>
+          <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+    
+            <!-- Profile dropdown -->
+            <div class="ml-3 relative">
+              <div>
+                <button class="bg-white flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
+                  <span class="sr-only">Open user menu</span>
+                  
+                  <svg class="h-10 w-10 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+                  </svg>                
+                </button>
+              </div>
+              <!--
+                Profile dropdown panel, show/hide based on dropdown state.
+    
+                Entering: "transition ease-out duration-100"
+                  From: "transform opacity-0 scale-95"
+                  To: "transform opacity-100 scale-100"
+                Leaving: "transition ease-in duration-75"
+                  From: "transform opacity-100 scale-100"
+                  To: "transform opacity-0 scale-95"
+              -->
+              <!--
+              個人設定
+              <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">マイページ</a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">設定</a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">サインアウト</a>
+              </div>
+              -->
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!--
+        Mobile menu, toggle classes based on menu state.
+    
+        Menu open: "block", Menu closed: "hidden"
+      -->
+      <div id="mobile-menu__item" class="hidden sm:hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+          <a href="#" class="mobile-navbar-item">新着</a>
+          <a href="#" class="mobile-navbar-item">探す</a>
+          <a href="#" class="mobile-navbar-item">教える</a>
+        </div>
+      </div>
+    </nav>
+    <script>
+      function toogleMenu() {
+        document.getElementById("mobile-menu__open").classList.toggle("hidden");
+        document.getElementById("mobile-menu__close").classList.toggle("hidden");
+        document.getElementById("mobile-menu__item").classList.toggle("hidden");
+        document.getElementById("mobile-menu__items").classList.toggle("hidden");
+      }
+      
+      document.getElementById("mobile-menu__open").addEventListener(
+        "click",
+        () => {
+          toogleMenu();
+        },
+        false
+      );
+      document.getElementById("mobile-menu__close").addEventListener(
+        "click",
+        () => {
+          toogleMenu();
+        },
+        false
+      );
+
+    </script>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>

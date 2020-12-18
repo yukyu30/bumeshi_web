@@ -1,0 +1,17 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.navbar-brand{
+  @apply flex-shrink-0 flex items-center;
+}
+
+.navbar-item{
+  @apply text-gray-50 hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium;
+}
+
+.mobile-navbar-item{
+  @apply text-gray-50 hover:bg-red-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium;
+}
