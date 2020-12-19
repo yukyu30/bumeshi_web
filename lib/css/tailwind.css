@@ -15,3 +15,14 @@
 .mobile-navbar-item{
   @apply text-gray-50 hover:bg-red-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium;
 }
+
+.title{
+  @apply my-5 text-xl font-black text-red-600;
+}
+
+.text{
+  @apply text-gray-800 
+}
+.w-form{
+  width: 28rem;
+}

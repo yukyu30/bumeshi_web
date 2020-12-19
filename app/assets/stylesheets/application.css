@@ -31220,6 +31220,25 @@ video {
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
+.title{
+  font-weight: 900;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgba(220, 38, 38, var(--tw-text-opacity));
+}
+
+.text{
+  --tw-text-opacity: 1;
+  color: rgba(31, 41, 55, var(--tw-text-opacity))
+}
+
+.w-form{
+  width: 28rem;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

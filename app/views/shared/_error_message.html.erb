@@ -1,0 +1,9 @@
+<% if flash[:error_messages] %>
+    <div class="border border-red-500 bg-red-100 mt-5 p-3 rounded relative" role="alert">
+        <ul>
+            <% flash[:error_messages].each do |msg| %>
+                <li class="text-red-500"><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
