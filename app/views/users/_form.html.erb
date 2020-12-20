@@ -1,11 +1,11 @@
 <div class="flex justify-center">
     
     <div class="w-form p-7 bg-white rounded shadow-xl">
-        <p>食の探究者よ!汝の名前と、秘密の呪文を登録するのじゃ</p>
+        <p>ユーザーIDとパスワードで登録できます</p>
         <%= render 'shared/error_message' %>
         <%=form_with model: @user, class: 'space-y-6' do |f|%>
             <div>
-                <%= f.label :name, 'ユーザー名' ,class:'font-medium text-gray-700'%>
+                <%= f.label :name, 'ユーザーID' ,class:'font-medium text-gray-700'%>
                 <%= f.text_field :name ,class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>
             </div>
             <div>
