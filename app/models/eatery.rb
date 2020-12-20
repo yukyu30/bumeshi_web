@@ -1,0 +1,2 @@
+class Eatery < ApplicationRecord
+end

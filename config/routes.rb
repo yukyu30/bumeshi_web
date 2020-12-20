@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
+  #eateiesコントローラ
   get 'eatery', to:'eateries#index'#飲食店一覧ページ
   get 'find', to: 'eateries#find'#飲食店を探すページ
-  get 'share', to: 'eateries#share'#飲食店を登録するページ
+  get 'reg', to: 'eateries#new'#飲食店を登録するページ
   
+  #usersコントローラ　
   get 'mypage', to:'users#me'#mypageにアクセスでuserコントローラのmeが呼ばれる
   get 'signup', to:'users#new'
-  get 'login', to: 'users#login'
+  get 'login', to: 'users#auth'
   
-  post 'authenticated', to: 'sessions#create'
-  
+  #sessionsコントローラ 主にログイン状態の保持のために使用
+  post 'login', to: 'sessions#create'
   delete 'logout', to:'sessions#destroy'
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

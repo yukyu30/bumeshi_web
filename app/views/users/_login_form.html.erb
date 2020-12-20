@@ -2,7 +2,7 @@
     
     <div class="w-form p-7 bg-white rounded shadow-xl">
         <%= render 'shared/error_message' %>
-        <%=form_with scope: :session, method: :post, url: authenticated_path, class: 'space-y-6' do |f|%>
+        <%=form_with scope: :session, method: :post, url: login_path, class: 'space-y-6' do |f|%>
             <div>
                 <%= f.label :name, 'ユーザー名' ,class:'font-medium text-gray-700'%>
                 <%= f.text_field :name ,class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>

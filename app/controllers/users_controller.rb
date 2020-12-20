@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       }
     end
   end
-  def login
+  def auth
     
   end
   def me
