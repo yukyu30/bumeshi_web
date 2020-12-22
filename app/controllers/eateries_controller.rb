@@ -16,6 +16,9 @@ class EateriesController < ApplicationController
         end
     end
     
+    def show
+       @eatery = Eatery.find(params[:id])
+    end
     private
     
     def eatery_params
