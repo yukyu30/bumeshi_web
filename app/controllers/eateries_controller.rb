@@ -19,6 +19,16 @@ class EateriesController < ApplicationController
     def show
        @eatery = Eatery.find(params[:id])
     end
+    
+    def recent
+       @eatery = Eatery.recent(5)
+    end
+    def search
+        @query = params[:query]
+        @eatery = Eatery.search(@query)
+    end
+    
+    
     private
     
     def eatery_params

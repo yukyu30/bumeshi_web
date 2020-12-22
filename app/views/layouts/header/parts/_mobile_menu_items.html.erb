@@ -1,7 +1,6 @@
-<div id="mobile-menu__items" class="hidden sm:hidden">
+<div id="mobile-menu__items" class="hidden md:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1">
-        <%= link_to '新着', eateries_path, class: "mobile-navbar-item" %>
-        <a href="#" class="mobile-navbar-item">探す</a>
+        <%= link_to '新着', '/eateries/recent', class: "mobile-navbar-item" %>
         <%= link_to '教える', new_eatery_path, class: "mobile-navbar-item" %>
     </div>
 </div>

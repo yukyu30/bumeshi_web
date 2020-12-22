@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  #eateiesコントローラ
-  resources :eateries, only: [:index, :new, :create, :show]
+  #eateriesコントローラ
+  
   get 'eateries', to:'eateries#index'#飲食店一覧ページ
   get 'eateries/new', to: 'eateries#new'#飲食店を登録するページ
+  get 'eateries/recent', to: 'eateries#recent'
   post 'eateries', to:'eateries#create'
   get 'eateries/:id', to: 'eateries#show'
+  
+  post 'eateries/search', to: 'eateries#search'
+  resources :eateries, only: [:index, :new, :create, :show]
   
   #usersコントローラ　
   get 'mypage', to:'users#me'#mypageにアクセスでuserコントローラのmeが呼ばれる
