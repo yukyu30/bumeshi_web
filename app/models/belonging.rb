@@ -1,0 +1,2 @@
+class Belonging < ApplicationRecord
+end

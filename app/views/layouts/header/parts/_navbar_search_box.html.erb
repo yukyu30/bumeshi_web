@@ -1,5 +1,5 @@
-<div class="hidden  max-w-7xl mx  md:flex">
-        <%= form_with url:'/eateries/search', class: "flex bg-white rounded items-center border shadow-xl" do |f| %>
+<div class="hidden  md:flex">
+        <%= form_with url:'/eateries/search', class: "w-96 flex bg-white rounded items-center border shadow-xl" do |f| %>
             <!--  f.select :category, [["ALL", nil], ["和食", 1], ["中華", 2], ["イタリアン", 3]], include_blank: ["ALL", nil], class:'select border-r-2 border-gray-200' -->
             
             <%= f.text_field :query, placeholder: '店名・地名', class: "w-full p-2 text-sm outline-none focus:outline-none bg-transparent" %>

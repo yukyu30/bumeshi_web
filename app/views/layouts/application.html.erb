@@ -21,63 +21,49 @@
               <%= render partial: 'layouts/header/parts/navbar_brand' %>
               <%= render partial: 'layouts/header/parts/navbar_items' %>
             </div>
-            <%= render partial: 'layouts/header/parts/search_box' %>
-            <div class="flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
-              <div class="flex-1 ml-3 relative">
-              </div>
-            </div>
-
+            <%= render partial: 'layouts/header/parts/navbar_search_box' %>
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
               <div class="flex-1 ml-3 relative">
-                  
                   <%= render partial: 'layouts/header/parts/user_icon' %>
-                  
                   <%= render partial: 'layouts/header/parts/user_menu' %>
               </div>
             </div>
           </div>
-         
-            <%= render partial: 'layouts/header/parts/mobile_search_box' %>
-          
+          <%= render partial: 'layouts/header/parts/mobile_search_box' %>
         </div>
-        
         <%= render partial: 'layouts/header/parts/mobile_menu_items' %>
-    </nav>
-    <script>
-      function toogleMenu() {
-        document.getElementById("mobile-menu__open").classList.toggle("hidden");
-        document.getElementById("mobile-menu__close").classList.toggle("hidden");
-        document.getElementById("mobile-menu__items").classList.toggle("hidden");
-      }
+      </nav>
+      <script>
+        function toogleMenu() {
+          document.getElementById("mobile-menu__open").classList.toggle("hidden");
+          document.getElementById("mobile-menu__close").classList.toggle("hidden");
+          document.getElementById("mobile-menu__items").classList.toggle("hidden");
+        }
+        
+        document.getElementById("mobile-menu__open").addEventListener(
+          "click",
+          () => {
+            toogleMenu();
+          },
+          false
+        );
+        document.getElementById("mobile-menu__close").addEventListener(
+          "click",
+          () => {
+            toogleMenu();
+          },
+          false
+        );
+        
+        document.getElementById("user-icon").addEventListener(
+          "click",
+          () => {
+            document.getElementById("user-menu").classList.toggle("hidden");
+          },
+          false
+        );
       
-      document.getElementById("mobile-menu__open").addEventListener(
-        "click",
-        () => {
-          toogleMenu();
-        },
-        false
-      );
-      document.getElementById("mobile-menu__close").addEventListener(
-        "click",
-        () => {
-          toogleMenu();
-        },
-        false
-      );
-    
-    </script>
-    
-    <script>
-
-      document.getElementById("user-icon").addEventListener(
-        "click",
-        () => {
-          document.getElementById("user-menu").classList.toggle("hidden");
-        },
-        false
-      );
-    </script>
-    
+      </script>
     </header>
     <main>
       <%= yield %>
