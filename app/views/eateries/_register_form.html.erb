@@ -17,8 +17,12 @@
                 <%= f.text_field :category, class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>
             </div>
             <div>
-                <%= f.label :payment, '支払い' ,class:'font-medium text-gray-700' %>
-                <%= f.text_field :payment, class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>
+                <%= f.collection_check_boxes(:payment_ids, Payment.all, :id, :name) do |payment|%>
+                    <%= payment.label do %>
+                        <%= payment.check_box %>
+                        <%= payment.text %>
+                    <% end %>
+                <% end %>
             </div>
             <div>
                 <%= f.label :parking, '駐車場' ,class:'font-medium text-gray-700' %>

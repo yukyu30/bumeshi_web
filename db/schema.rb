@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_20_164559) do
+ActiveRecord::Schema.define(version: 2020_12_23_175200) do
+
+  create_table "belongings", force: :cascade do |t|
+    t.string "name"
+    t.integer "eatery_id"
+    t.integer "payment_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "eateries", force: :cascade do |t|
     t.string "name"
@@ -18,8 +32,22 @@ ActiveRecord::Schema.define(version: 2020_12_20_164559) do
     t.float "latitude"
     t.float "longitude"
     t.string "category"
-    t.string "payment"
     t.string "parking"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "eatery_payment_relations", force: :cascade do |t|
+    t.integer "eatery_id", null: false
+    t.integer "payment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["eatery_id"], name: "index_eatery_payment_relations_on_eatery_id"
+    t.index ["payment_id"], name: "index_eatery_payment_relations_on_payment_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,4 +60,6 @@ ActiveRecord::Schema.define(version: 2020_12_20_164559) do
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
+  add_foreign_key "eatery_payment_relations", "eateries"
+  add_foreign_key "eatery_payment_relations", "payments"
 end

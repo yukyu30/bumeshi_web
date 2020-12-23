@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Payment.create!(
+    [
+        { name: 'クレジットカード' },
+        { name: 'Pay Pay' },
+        { name: 'LINE Pay' },
+        { name: 'au PAY' },
+        { name: 'd払い' },
+        { name: '楽天ペイ'}
+    ]    
+)

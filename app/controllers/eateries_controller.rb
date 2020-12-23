@@ -4,6 +4,7 @@ class EateriesController < ApplicationController
     end
     def new
         @eatery = Eatery.new
+        @payment = Payment.all
     end
     def create
         eatery = Eatery.create(eatery_params)
@@ -13,6 +14,7 @@ class EateriesController < ApplicationController
           redirect_back fallback_location: root_path, flash: {
             eatery: eatery
           }
+
         end
     end
     
@@ -32,7 +34,7 @@ class EateriesController < ApplicationController
     private
     
     def eatery_params
-        params.require(:eatery).permit(:name, :addres, nil, nil, :category, :payment, :parking)
+        params.require(:eatery).permit(:name, :addres, nil, nil, :category, :parking, payment_ids: [])
     end
         
 end

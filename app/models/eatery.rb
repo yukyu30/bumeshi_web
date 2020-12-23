@@ -1,6 +1,6 @@
 class Eatery < ApplicationRecord
-    has_many :payments, through: :belongings
-    has_many :belongings
+    has_many :eatery_payment_relations, dependent: :delete_all
+    has_many :payments, through: :eatery_payment_relations
     scope :search, -> (query) {
         where("name like :q OR category like :q OR addres like :q", q: "%#{query}%") if query.present?
     }
