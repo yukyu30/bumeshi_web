@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_23_175200) do
+ActiveRecord::Schema.define(version: 2020_12_23_182357) do
 
   create_table "belongings", force: :cascade do |t|
     t.string "name"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 2020_12_23_175200) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "eatery_category_relations", force: :cascade do |t|
+    t.integer "eatery_id", null: false
+    t.integer "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_eatery_category_relations_on_category_id"
+    t.index ["eatery_id"], name: "index_eatery_category_relations_on_eatery_id"
+  end
+
   create_table "eatery_payment_relations", force: :cascade do |t|
     t.integer "eatery_id", null: false
     t.integer "payment_id", null: false
@@ -60,6 +69,8 @@ ActiveRecord::Schema.define(version: 2020_12_23_175200) do
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
+  add_foreign_key "eatery_category_relations", "categories"
+  add_foreign_key "eatery_category_relations", "eateries"
   add_foreign_key "eatery_payment_relations", "eateries"
   add_foreign_key "eatery_payment_relations", "payments"
 end

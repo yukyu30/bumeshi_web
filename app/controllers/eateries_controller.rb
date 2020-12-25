@@ -1,18 +1,19 @@
 class EateriesController < ApplicationController
     def index
-        @eatery = Eatery.all
+        @eateries = Eatery.page(params[:page])
     end
     def new
-        @eatery = Eatery.new
-        @payment = Payment.all
+        @eatery = Eatery.new(flash[:eatery])
     end
     def create
-        eatery = Eatery.create(eatery_params)
+        eatery = Eatery.new(eatery_params)
         if eatery.save 
+            flash[:notice] = "#{eatery.name}を登録しました！"
           redirect_to eateries_path
         else
           redirect_back fallback_location: root_path, flash: {
-            eatery: eatery
+            eatery: eatery,
+            error_messages: eatery.errors.full_messages
           }
 
         end
@@ -23,18 +24,17 @@ class EateriesController < ApplicationController
     end
     
     def recent
-       @eatery = Eatery.recent(5)
+       @eateries = Eatery.recent(50).page(params[:page])
     end
     def search
         @query = params[:query]
-        @eatery = Eatery.search(@query)
+        @eateries = Eatery.search(@query).page(params[:page])
     end
-    
     
     private
     
     def eatery_params
-        params.require(:eatery).permit(:name, :addres, nil, nil, :category, :parking, payment_ids: [])
+        params.require(:eatery).permit(:name, :addres, nil, nil, :parking, payment_ids: [], category_ids: [])
     end
         
 end

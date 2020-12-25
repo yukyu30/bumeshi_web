@@ -5,13 +5,9 @@ ja:
         name: ユーザー名
         password: パスワード
         password_confirmation: パスワード（確認）
-      board:
-        name: 名前
-        title: タイトル
-        body: 本文
-      comment:
-        name: 名前
-        comment: コメント
+      eatery:
+        name: 店名
+        addres: 住所
   views:
     pagination:
       first: 最初

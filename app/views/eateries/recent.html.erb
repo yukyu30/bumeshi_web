@@ -1,4 +1,5 @@
 <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
     <h1 class="my-5 text-xl font-black text-red-600">新しく追加されたお店</h1>
-    <%= render partial: 'eateries_list', locals:{ eatery: @eatery } %>
+    <%= render partial: 'eateries_list', locals:{ eateries: @eateries } %>
+    <%= paginate @eateries %>
 </div>

@@ -4,10 +4,19 @@
 
 @tailwind utilities;
 
+
+.pagination-next, .pagination-previous, .pagination-link{
+  @apply px-3 
+}
+.pagination-next, .pagination-previous, .is-not-current{
+  @apply px-3 text-red-600 hover:text-gray-800
+}
+.is-current{
+  @apply bg-gray-300 text-gray-800 rounded
+}
 .navbar-brand{
   @apply flex-shrink-0 flex items-center;
 }
-
 .navbar-item{
   @apply text-gray-50 hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium;
 }

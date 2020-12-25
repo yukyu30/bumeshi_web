@@ -1,5 +1,5 @@
 <div class="grid gap-3 grid-cols-2 md:grid-cols-4">
-        <% @eatery.each do |eatery| %>
+        <% @eateries.each do |eatery| %>
             <%= link_to eatery, class:"max-w-full rounded overflow-hidden shadow-lg flex-grow md:flex-grow-0" do %>
                 <div>
                     <img class="w-full" src="https://pbs.twimg.com/media/EpA3s0zUwA0QZ1s?format=jpg&name=large" alt="Sunset in the mountains">
@@ -20,15 +20,24 @@
                                 <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
                                 <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd" />
                             </svg>
-                            <p class="text-base">
-                                <% eatery.payments.each do |payment| %>
-                            <%= payment.name %>
+                        </div>
+                        <div class="flex flex-wrap">
+                            <% eatery.payments.each do |payment| %>
+                            <p class="flex rounded bg-gray-200 text-gray-500 px-1 m-0.5 hover:bg-red-200">
+                                <%= payment.name %>
+                            </p>
                         <% end %>
                         </div>
                         
                     </div>
                     <div class="px-6 py-4">
-                        <span class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2">#<%= eatery.category %></span>
+                        <span class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2">
+                            <p class="text-base">
+                                <% eatery.categories.each do |category| %>
+                                    #<%= category.name %>
+                                <% end %>
+                            </p>    
+                        </span>
                     </div>
                 </div>
             <% end %>

@@ -15,3 +15,14 @@ Payment.create!(
         { name: '楽天ペイ'}
     ]    
 )
+Category.create!(
+    [
+        {name: '和食'},
+        {name: '中華'},
+        {name: 'イタリアン'},
+        {name: '肉'},
+        {name: '海鮮'},
+        {name: 'カフェ'},
+        {name: 'ラーメン'},
+    ]
+)

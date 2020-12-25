@@ -2,27 +2,38 @@
     
     <div class="w-form p-7 bg-white rounded shadow-xl">
         <p>お店の基本情報を入力してください</p>
+        <%= render 'shared/error_message' %>
         
         <%=form_with model: @eatery, class: 'space-y-6' do |f|%>
             <div>
-                <%= f.label :yname, '店名' ,class:'font-medium text-gray-700'%>
+                <%= f.label :yname, '店名' ,class: 'font-medium text-gray-700'%>
                 <%= f.text_field :name ,class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>
             </div>
             <div>
-                <%= f.label :addres, '住所' ,class:'font-medium text-gray-700' %>
+                <%= f.label :addres, '住所' ,class:' font-medium text-gray-700' %>
                 <%= f.text_field :addres, class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>
             </div>
             <div>
-                <%= f.label :category, 'ジャンル' ,class:'font-medium text-gray -700' %>
-                <%= f.text_field :category, class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>
+                 <%= f.label :category_ids, 'カテゴリ(複数選択可)' ,class: 'font-medium text-gray-700' %></br>
+                 <div class='grid grid-cols-3'>
+                    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category|%>
+                        <%= category.label do %>
+                            <%= category.check_box %>
+                            <%= category.text %>
+                        <% end %>
+                    <% end %>
+                </div>
             </div>
             <div>
-                <%= f.collection_check_boxes(:payment_ids, Payment.all, :id, :name) do |payment|%>
-                    <%= payment.label do %>
-                        <%= payment.check_box %>
-                        <%= payment.text %>
+                <%= f.label :payment_ids, '利用可能な支払い手段(複数選択可)' ,class: 'font-medium text-gray-700 inline-flex items-center' %><br>
+                <div class='grid grid-cols-3'>
+                    <%= f.collection_check_boxes(:payment_ids, Payment.all, :id, :name) do |payment|%>
+                        <%= payment.label do %>
+                            <%= payment.check_box %>
+                            <%= payment.text %>
+                        <% end %>
                     <% end %>
-                <% end %>
+                </div>
             </div>
             <div>
                 <%= f.label :parking, '駐車場' ,class:'font-medium text-gray-700' %>

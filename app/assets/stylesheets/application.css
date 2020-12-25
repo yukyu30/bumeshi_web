@@ -31167,6 +31167,31 @@ video {
           animation: bounce 1s infinite;
 }
 
+.pagination-next, .pagination-previous, .pagination-link{
+  padding-left: 0.75rem;
+  padding-right: 0.75rem
+}
+
+.pagination-next, .pagination-previous, .is-not-current{
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  --tw-text-opacity: 1;
+  color: rgba(220, 38, 38, var(--tw-text-opacity))
+}
+
+.pagination-next:hover, .pagination-previous:hover, .is-not-current:hover {
+  --tw-text-opacity: 1;
+  color: rgba(31, 41, 55, var(--tw-text-opacity));
+}
+
+.is-current{
+  --tw-bg-opacity: 1;
+  background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
+  border-radius: 0.25rem;
+  --tw-text-opacity: 1;
+  color: rgba(31, 41, 55, var(--tw-text-opacity))
+}
+
 .navbar-brand{
   display: flex;
   align-items: center;

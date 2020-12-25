@@ -1,5 +1,5 @@
 <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-    <%= render partial: 'shared/search_box' %>
     <h1 class="my-5 text-xl font-black text-red-600">検索結果　<%= @query%></h1>
-    <%= render partial: 'eateries_list', locals:{ eatery: @eatery } %>
+    <%= render partial: 'eateries_list', locals:{ eateries: @eateries } %>
+    <%= paginate @eateries %>
 </div>
