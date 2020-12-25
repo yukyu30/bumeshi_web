@@ -12,16 +12,8 @@
 
 ActiveRecord::Schema.define(version: 2020_12_23_182357) do
 
-  create_table "belongings", force: :cascade do |t|
-    t.string "name"
-    t.integer "eatery_id"
-    t.integer "payment_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -31,7 +23,6 @@ ActiveRecord::Schema.define(version: 2020_12_23_182357) do
     t.string "addres"
     t.float "latitude"
     t.float "longitude"
-    t.string "category"
     t.string "parking"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -56,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_12_23_182357) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
