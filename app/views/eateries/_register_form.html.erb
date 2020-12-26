@@ -1,11 +1,16 @@
 <div class="flex justify-center">
     
     <div class="w-form p-7 bg-white rounded shadow-xl">
+        <h2>検索で入力を簡略化する</h2>
          <%= render partial: 'gnavi_search_box'%>
-        <p>お店の基本情報を入力してください</p>
+    </div>
+</div>
+<div class="flex justify-center mt-9">
+    <div class="w-form p-7 bg-white rounded shadow-xl">
+        <h2>お店の基本情報を入力してください</h2>
         <%= render 'shared/error_message' %>
         
-        <%=form_with model: @eatery, class: 'space-y-6' do |f|%>
+        <%=form_with model: @eatery, class: 'space-y-2' do |f|%>
             <div>
                 <%= f.label :yname, '店名' ,class: 'font-medium text-gray-700'%>
                 <%= f.text_field :name ,class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>

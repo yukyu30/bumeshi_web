@@ -8,16 +8,20 @@
                     <%= link_to eateries_new_path(name: eatery["name"], address: eatery["address"]) do %>
                         <h2 class="font-bold text-lg mb-2"><%= eatery["name"] %></h2>
                     <% end %>
-                    <div class="md:mt-2 text-gray-400">
+                    <div class="md:mt-2 text-gray-800">
                         <p class="text-base">
                             <%= eatery["address"] %>
                         </p>
                     </div>
-                    <div class="md:mt-2 text-gray-400">
-                        <a href="<%= eatery["url"]%>">
-                            ぐるなびで詳細をみる
+                    <div class="text-right"> 
+                        <a class=" p-3 text-sm text-gray-400 hover:text-red-300 " href="<%= eatery["url"]%>">
+                            ぐるなびへ
                         </a>
-                        
+                    </div>
+                    <div class="flex justify-center mt-3 ">
+                        <%= link_to eateries_new_path(name: eatery["name"], address: eatery["address"]), class: "w-1/2 text-center p-2  rounded text-red-600 hover:bg-gray-100" do %>
+                            登録する
+                         <% end %>
                     </div>
                 </div>
             
