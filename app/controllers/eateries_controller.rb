@@ -1,9 +1,20 @@
 class EateriesController < ApplicationController
+    
     def index
         @eateries = Eatery.page(params[:page])
     end
     def new
-        @eatery = Eatery.new(flash[:eatery])
+        if params[:name].present? and params[:address].present?
+            addres = params[:address]
+            addres.slice!(0..9)
+            @eatery = Eatery.new(name: params[:name], addres: addres)
+        else
+            @eatery = Eatery.new(flash[:eatery])
+        end
+    end
+    def find
+        @query = params[:query]
+        @gnavi_eateries = gnavi_freeword_search(@query)
     end
     def create
         eatery = Eatery.new(eatery_params)
@@ -36,5 +47,14 @@ class EateriesController < ApplicationController
     def eatery_params
         params.require(:eatery).permit(:name, :addres, nil, nil, :parking, payment_ids: [], category_ids: [])
     end
+    def gnavi_freeword_search(querey)
+        q = querey
+        key=ENV['API_KEY']
+        params = URI.encode_www_form({keyid: key, freeword: q})
+        uri = URI.parse("https://api.gnavi.co.jp/RestSearchAPI/v3/?#{params}")
+        json = Net::HTTP.get(uri)
+        result = JSON(json)
         
+        return result["rest"]
+    end
 end

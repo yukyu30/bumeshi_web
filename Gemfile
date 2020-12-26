@@ -26,6 +26,9 @@ gem 'kaminari'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+gem "dotenv-rails"
+
+
 group :production do
   # Use PostgreSQL 1.2.3
   gem 'pg', '1.2.3'

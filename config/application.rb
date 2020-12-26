@@ -1,7 +1,6 @@
 require_relative "boot"
 
 require "rails/all"
-
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -11,6 +10,7 @@ module RailsApp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
     config.hosts << "bc789c50765f435f80c9a2e94fec3f1d.vfs.cloud9.ap-northeast-1.amazonaws.com"
+    config.paths.add 'lib', eager_load: true
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

@@ -2,7 +2,7 @@
         <% @eateries.each do |eatery| %>
             <%= link_to eatery, class:"max-w-full rounded overflow-hidden shadow-lg flex-grow" do %>
                 <div>
-                    <img class="w-full" src="https://pbs.twimg.com/media/EpA3s0zUwA0QZ1s?format=jpg&name=large" alt="Sunset in the mountains">
+                    <img class="w-full" src="https://pbs.twimg.com/media/EpA3s0zUwA0QZ1s?format=jpg&name=large" alt="<%= eatery.name %>">
                     <div class="px-6 py-4">
                         <h2 class="font-bold text-lg mb-2"><%= eatery.name %></h2>
                         
