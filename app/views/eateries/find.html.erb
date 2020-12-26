@@ -1,20 +1,26 @@
 <div class="flex justify-center p-5">
     <%= render partial: 'gnavi_search_box'%>
 </div>
-    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        
-        <div class="grid gap-3 grid-cols-1 md:grid-cols-4">
-            <% @gnavi_eateries.each do |eatery|%>
-                <%= link_to eateries_new_path(name: eatery["name"], address: eatery["address"]), class: "max-w-full rounded overflow-hidden shadow-lg flex-grow" do %>
-                    <div class="px-6 py-4">
+<div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="grid gap-3 grid-cols-1 md:grid-cols-4">
+        <% @gnavi_eateries.each do |eatery|%>
+                <div class="px-6 py-4 max-w-full rounded overflow-hidden shadow-lg flex-grow" >
+                    <%= link_to eateries_new_path(name: eatery["name"], address: eatery["address"]) do %>
                         <h2 class="font-bold text-lg mb-2"><%= eatery["name"] %></h2>
-                        <div class="md:mt-2 text-gray-400">
-                            <p class="text-base">
-                                <%= eatery["address"] %>
-                            </p>
-                        </div>
+                    <% end %>
+                    <div class="md:mt-2 text-gray-400">
+                        <p class="text-base">
+                            <%= eatery["address"] %>
+                        </p>
                     </div>
-                <% end %>
-            <% end %>
-        </div>
+                    <div class="md:mt-2 text-gray-400">
+                        <a href="<%= eatery["url"]%>">
+                            ぐるなびで詳細をみる
+                        </a>
+                        
+                    </div>
+                </div>
+            
+        <% end %>
     </div>
+  </div>
