@@ -1,23 +1,17 @@
-<div class="flex justify-center">
-    
-    <div class="w-form p-7 bg-white rounded shadow-xl">
-        <h2>検索で入力を簡略化する</h2>
-         <%= render partial: 'gnavi_search_box'%>
-    </div>
-</div>
+
 <div class="flex justify-center mt-9">
     <div class="w-form p-7 bg-white rounded shadow-xl">
         <h2>お店の基本情報を入力してください</h2>
         <%= render 'shared/error_message' %>
         
-        <%=form_with model: @eatery, class: 'space-y-2' do |f|%>
+        <%=form_with model: @eatery, class: 'space-y-3' do |f|%>
             <div>
                 <%= f.label :yname, '店名' ,class: 'font-medium text-gray-700'%>
-                <%= f.text_field :name ,class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>
+                <%= f.text_field :name ,class: 'w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>
             </div>
             <div>
                 <%= f.label :addres, '住所' ,class:' font-medium text-gray-700' %>
-                <%= f.text_field :addres, class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>
+                <%= f.text_field :addres, class: 'w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>
             </div>
             <div>
                  <%= f.label :category_ids, 'カテゴリ(複数選択可)' ,class: 'font-medium text-gray-700' %></br>
@@ -42,8 +36,29 @@
                 </div>
             </div>
             <div>
-                <%= f.label :parking, '駐車場' ,class:'font-medium text-gray-700' %>
-                <%= f.text_field :parking, class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>
+                <%= f.label :parking, '駐車場' ,class:'font-medium text-gray-700' %><br>
+                <p class="mt-2"><span id="current-value" class="border border-gray-300 py-1 px-3 w-min-80 text-gray-900 rounded"></span>台くらい駐車可能</p>
+                <%= f.range_field :parking, :min=>0, :max=>30, :step=>5, :id=>"parking-number", class: "w-full"%>
+                
+                <script>
+                    const inputElem = document.getElementById('parking-number'); // input要素
+                    const currentValueElem = document.getElementById('current-value'); // 埋め込む先のspan要素
+                    
+                    // 現在の値をspanに埋め込む関数
+                    const setCurrentValue = (val) => {
+                      currentValueElem.innerText = val;
+                    }
+                    
+                    // inputイベント時に値をセットする関数
+                    const rangeOnChange = (e) =>{
+                      setCurrentValue(e.target.value);
+                    }
+                    
+                    window.onload = () => {
+                      inputElem.addEventListener('input', rangeOnChange); // スライダー変化時にイベントを発火
+                      setCurrentValue(inputElem.value); // ページ読み込み時に値をセット
+                    }
+                </script>
             </div>
             <%= f.submit '登録', class: 'group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500' %>
         <% end %>
