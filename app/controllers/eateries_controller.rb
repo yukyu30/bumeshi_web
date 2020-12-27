@@ -7,7 +7,13 @@ class EateriesController < ApplicationController
         if params[:name].present? and params[:address].present?
             addres = params[:address]
             addres.slice!(0..9)
-            @eatery = Eatery.new(name: params[:name], addres: addres)
+            @eatery = Eatery.new(
+                name: params[:name], 
+                addres: addres, 
+                latitude: params[:latitude], 
+                longitude: params[:longitude],
+                url: params[:url]
+            )
         else
             @eatery = Eatery.new(flash[:eatery])
         end

@@ -8,6 +8,7 @@ class CreateEateries < ActiveRecord::Migration[6.1]
       #t.string :category
       #t.string :payment paymentsテーブルとbelongingsテーブルの実装で不要に
       t.string :parking
+      t.string :url
 
       t.timestamps
     end

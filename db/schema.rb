@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_12_23_182357) do
     t.float "latitude"
     t.float "longitude"
     t.string "parking"
+    t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
