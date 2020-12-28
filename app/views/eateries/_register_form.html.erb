@@ -41,7 +41,7 @@
             <%= f.hidden_field :gnav_id, value: @eatery.gnav_id %>
             <div>
                 <%= f.label :parking, '駐車場' ,class:'font-medium text-gray-700' %><br>
-                <p class="mt-2"><span id="current-value" class="border border-gray-300 py-1 px-3 w-min-80 text-gray-900 rounded"></span>台くらい駐車可能</p>
+                <p class="mt-2"><span id="current-value" class="border border-gray-300 py-1 px-3 w-min-80 text-gray-900 rounded">0</span>台くらい駐車可能</p>
                 <%= f.range_field :parking, min: 0, max: 30, step: 5, id: "parking-number", value: 0, class: "w-full mt-2"%>
                 
                 <script>
@@ -57,9 +57,8 @@
                     const rangeOnChange = (e) =>{
                       setCurrentValue(e.target.value);
                     }
-                    
+                    inputElem.addEventListener('input', rangeOnChange); 
                     window.onload = () => {
-                      inputElem.addEventListener('input', rangeOnChange); // スライダー変化時にイベントを発火
                       setCurrentValue(inputElem.value); // ページ読み込み時に値をセット
                     }
                 </script>
