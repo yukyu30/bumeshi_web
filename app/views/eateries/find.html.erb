@@ -15,9 +15,9 @@
             <% else %>
                 <% @gnavi_eateries.each do |eatery| %>
                     <div class="px-6 py-4 max-w-full rounded overflow-hidden shadow-lg flex-grow" >
-                        <%= link_to eateries_new_path(name: eatery["name"], address: eatery["address"]) do %>
-                            <h2 class="font-bold text-lg mb-2"><%= eatery["name"] %></h2>
-                        <% end %>
+                       
+                        <h2 class="font-bold text-lg mb-2"><%= eatery["name"] %></h2>
+                        
                         <div class="md:mt-2 text-gray-800">
                             <p class="text-base">
                                 <%= eatery["address"] %>
@@ -29,7 +29,7 @@
                             </a>
                         </div>
                         <div class="flex justify-center mt-3 ">
-                            <%= link_to eateries_new_path(name: eatery["name"], address: eatery["address"], latitude: eatery["latitude"], longitude: eatery["longitude"], url: eatery["url"]), class: "w-1/2 text-center p-2  rounded text-red-600 hover:bg-gray-100" do %>
+                            <%= link_to eateries_new_path(name: eatery["name"], address: eatery["address"], latitude: eatery["latitude"], longitude: eatery["longitude"], url: eatery["url"], gnav_id: eatery["id"]), class: "w-1/2 text-center p-2  rounded text-red-600 hover:bg-gray-100" do %>
                                 登録する
                             <% end %>
                         </div>

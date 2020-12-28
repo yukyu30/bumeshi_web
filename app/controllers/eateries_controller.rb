@@ -12,7 +12,9 @@ class EateriesController < ApplicationController
                 addres: addres, 
                 latitude: params[:latitude], 
                 longitude: params[:longitude],
-                url: params[:url]
+                parking: nil,
+                url: params[:url],
+                gnav_id: params[:gnav_id],
             )
         else
             @eatery = Eatery.new(flash[:eatery])
@@ -51,7 +53,7 @@ class EateriesController < ApplicationController
     private
     
     def eatery_params
-        params.require(:eatery).permit(:name, :addres, nil, nil, :parking, :url, payment_ids: [], category_ids: [])
+        params.require(:eatery).permit(:name, :addres, :latitude, :longitude, :parking, :url, :gnav_id, payment_ids: [], category_ids: [])
     end
     def gnavi_freeword_search(querey)
         q = querey

@@ -11,7 +11,7 @@ class Eatery < ApplicationRecord
         presence: true
     
     scope :search, -> (query) {
-        Eatery.joins(:categories).where("eateries.name like :q OR categories.name like :q OR addres like :q", q: "%#{query}%") if query.present?
+        where("name like :q OR category like :q OR addres like :q", q: "%#{query}%") if query.present?
     }
     scope :recent, -> (count){
         order(created_at: :desc).limit(count)

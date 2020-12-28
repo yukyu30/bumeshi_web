@@ -2,16 +2,16 @@
 
 one:
   name: MyString
-  addres: MyString
-  latitude: 1.5
-  longitude: 1.5
-  category: 
-  parking: 
+  addres: 
+  latitude: MyString
+  longitude: MyString
+  parking: MyString
+  url: MyString
 
 two:
   name: MyString
-  addres: MyString
-  latitude: 1.5
-  longitude: 1.5
-  category: 
-  parking: 
+  addres: 
+  latitude: MyString
+  longitude: MyString
+  parking: MyString
+  url: MyString
