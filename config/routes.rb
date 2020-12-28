@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   #usersコントローラ　
   get 'mypage', to:'users#me'#mypageにアクセスでuserコントローラのmeが呼ばれる
   get 'signup', to:'users#new'
-  
+  resources :users, only: [:new, :create, :destroy]
   
   #sessionsコントローラ 主にログイン状態の保持のために使用
   get 'login', to: 'sessions#new'
@@ -26,5 +26,5 @@ Rails.application.routes.draw do
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'eateries#index' 
-  resources :users, only: %i[new create]
+  
 end
