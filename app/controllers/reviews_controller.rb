@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
         @eatery = Eatery.find(params[:eatery_id])
         if session[:user_id].blank?
             flash[:notice] = "コメントをするためにはユーザー登録をお願いします"
+            redirect_to　user_new_path
         else
             @eatery_id = params[:eatery_id]
             @user_id = session[:user_id]
