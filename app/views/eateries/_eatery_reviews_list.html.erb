@@ -1,0 +1,8 @@
+<div class="p-2 m-2 border rounded">
+        <% @reviews.each do |review| %>
+        <%= review.user.name %>さん
+            <p>予算：<%= review.price%></p>
+            <p>評価：<%= review.rate%></p>
+            <p>コメント<br><%= review.comment%></p>
+        <% end %>
+</div>

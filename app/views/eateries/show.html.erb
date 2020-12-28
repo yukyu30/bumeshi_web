@@ -32,6 +32,10 @@
                     </p>    
                 </span>    
             </div>
+            <%= link_to reviews_new_path(eatery_id: @eatery.id), class: "w-1/2 text-center p-2 m-2 rounded text-red-600 hover:bg-gray-100" do %>
+                        コメントを投稿
+            <% end %>
         </div>
     </div>
 </div>
+<%= render partial: 'eatery_reviews_list' %>

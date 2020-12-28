@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_28_064114) do
+ActiveRecord::Schema.define(version: 2020_12_28_141108) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -54,6 +54,18 @@ ActiveRecord::Schema.define(version: 2020_12_28_064114) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "eatery_id", null: false
+    t.integer "price", null: false
+    t.integer "rate", null: false
+    t.text "comment", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["eatery_id"], name: "index_reviews_on_eatery_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "password_digest", null: false
@@ -65,4 +77,6 @@ ActiveRecord::Schema.define(version: 2020_12_28_064114) do
   add_foreign_key "eatery_category_relations", "eateries"
   add_foreign_key "eatery_payment_relations", "eateries"
   add_foreign_key "eatery_payment_relations", "payments"
+  add_foreign_key "reviews", "eateries"
+  add_foreign_key "reviews", "users"
 end

@@ -4,7 +4,8 @@ class Eatery < ApplicationRecord
     
     has_many :eatery_category_relations, dependent: :delete_all
     has_many :categories, through: :eatery_category_relations
-     
+    
+    has_many :reviews
     validates :name,
         presence: true
     validates :addres,

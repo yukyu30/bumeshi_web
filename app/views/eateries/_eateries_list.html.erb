@@ -5,7 +5,7 @@
                     <%= link_to eatery do %>
                         <img class="w-full" src="https://pbs.twimg.com/media/EpA3s0zUwA0QZ1s?format=jpg&name=large" alt="<%= eatery.name %>">
                      <% end %>
-                    <div class="px-6 py-4">
+                    <div class="px-6 py-2">
                         <%= link_to eatery do %>
                             <h2 class="font-bold text-lg mb-2"><%= eatery.name %></h2>
                             
@@ -45,7 +45,7 @@
                         </div>
                         
                     </div>
-                    <div class="px-6 py-4">
+                    <div class="px-6 pt-4">
                         <span class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2">
                             <p class="text-base">
                                 <% eatery.categories.each do |category| %>
@@ -53,6 +53,11 @@
                                 <% end %>
                             </p>    
                         </span>
+                    </div>
+                    <div class="p-4">
+                        <%= link_to reviews_new_path(eatery_id: eatery["id"]), class: "w-1/2 text-center rounded text-red-600 p-2 hover:bg-gray-100" do %>
+                            コメントを投稿
+                        <% end %>
                     </div>
                 </div>
            

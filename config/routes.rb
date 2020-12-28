@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'reviews/new', to: 'reviews#new'
+  resources :reviews, only: [:new, :create, :destroy]
   #eateriesコントローラ
   
   get 'eateries', to:'eateries#index'#飲食店一覧ページ

@@ -30,16 +30,15 @@ class EateriesController < ApplicationController
             flash[:notice] = "#{eatery.name}を登録しました！"
           redirect_to eateries_path
         else
-          redirect_back fallback_location: root_path, flash: {
-            eatery: eatery,
-            error_messages: eatery.errors.full_messages
-          }
-
+            flash[:eatery] = eatery
+            flash[:error_messages] = eatery.errors.full_messages
+            redirect_back fallback_location: root_path
         end
     end
     
     def show
        @eatery = Eatery.find(params[:id])
+       @reviews = Review.where(eatery_id: params[:id])
     end
     
     def recent

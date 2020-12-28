@@ -1,0 +1,24 @@
+
+<div class="flex justify-center mt-9">
+    <div class="w-form p-7 bg-white rounded shadow-xl">
+        <h2>「<%= @eatery.name %>」に行ったときのことを教えて下さい</h2>
+        <%= render 'shared/error_message' %>
+        
+        <%=form_with model: @review, class: 'space-y-3' do |f|%>
+            <div>
+                <%= f.label :price, '金額',class: 'font-medium text-gray-700'%>
+                <%= f.number_field :price ,class: 'w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>
+            </div>
+            <div>
+                <%= f.label :rate, '評価' ,class:' font-medium text-gray-700' %>
+                <%= f.number_field :rate, class: 'w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>
+            </div>
+            <div>
+                <%= f.label :comment, 'コメント' ,class:' font-medium text-gray-700' %>
+                <%= f.text_area :comment, class: 'w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>
+            </div>
+            <%= f.hidden_field :eatery_id, value: params[:eatery_id] %>
+            <%= f.submit '投稿する', class: 'group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500' %>
+        <% end %>
+    </div>
+</div>
