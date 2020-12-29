@@ -28,7 +28,7 @@ class EateriesController < ApplicationController
         eatery = Eatery.new(eatery_params)
         if eatery.save 
             flash[:notice] = "#{eatery.name}を登録しました！"
-          redirect_to eateries_path
+            redirect_to eatery_url(id: eatery.id)
         else
             flash[:eatery] = eatery
             flash[:error_messages] = eatery.errors.full_messages

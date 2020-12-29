@@ -1,8 +1,26 @@
-<div class="p-2 m-2 border rounded">
-        <% @reviews.each do |review| %>
-        <%= review.user.name %>さん
-            <p>予算：<%= review.price%></p>
-            <p>評価：<%= review.rate%></p>
-            <p>コメント<br><%= review.comment%></p>
-        <% end %>
+<div class="max-w-7xl mx-auto">
+    <% @reviews.each do |review| %>
+        <div class="py-2 p-2 m-2 border-t flex justify-start">
+            <div class="pr-4">
+                <a class="items-center" href="#">
+                    <img class="w-9 h-9 object-cover rounded-full" src="https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=373&q=80" alt="avatar">
+                    
+                </a>
+            </div>
+            <div class="col-span-11">
+                
+                <h2 class="font-bold text-gray-900"><%= review.user.name %>さん</h2>
+                <div class="text-gray-500">
+                    <p><span class="bg-gray-200 rounded px-2 mr-2">予算</span><%= review.price%>円　<span class="bg-gray-200 rounded px-2 mr-2">評価</span><%= review.rate%></p>
+                </div>
+                <p class="mt-2"><%= review.comment%></p>
+                
+                
+            </div>
+            
+           
+                
+        </div>
+         
+    <% end %>
 </div>

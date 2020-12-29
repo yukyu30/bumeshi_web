@@ -31260,6 +31260,26 @@ video {
   color: rgba(31, 41, 55, var(--tw-text-opacity))
 }
 
+.button-attribute{
+  --tw-bg-opacity: 1;
+  background-color: rgba(229, 231, 235, var(--tw-bg-opacity))
+}
+
+.button-attribute:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(254, 202, 202, var(--tw-bg-opacity));
+}
+
+.button-attribute {
+  border-radius: 0.25rem;
+  display: flex;
+  margin: 0.125rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  --tw-text-opacity: 1;
+  color: rgba(107, 114, 128, var(--tw-text-opacity));
+}
+
 .w-form{
   width: 28rem;
 }

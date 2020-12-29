@@ -32,6 +32,10 @@
 .text{
   @apply text-gray-800 
 }
+
+.button-attribute{
+  @apply flex rounded bg-gray-200 text-gray-500 px-1 m-0.5 hover:bg-red-200
+}
 .w-form{
   width: 28rem;
 }
