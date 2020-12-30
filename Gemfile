@@ -22,12 +22,15 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rails-i18n'
 gem 'kaminari'
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
+
+gem 'mini_magick'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem "dotenv-rails"
-
+# Use Amazon S3
+gem "aws-sdk-s3", require: false
 
 group :production do
   # Use PostgreSQL 1.2.3

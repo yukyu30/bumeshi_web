@@ -1,22 +1,27 @@
-<div class="max-w-7xl mx-auto bg-gray-50">
+<div class="max-w-7xl mx-auto">
     <% @reviews.each do |review| %>
-        <div class="py-4 p-2 mx-2 border-t flex justify-start">
-            <div class=" mr-4">
+        <div class="mt-4  mx-2 flex justify-start bg-gray-50">
+            <div class="flex-shrink-0 w-10 mr-4">
                 <a class="items-center" href="#">
-                    <img class="w-10 h-10 object-cover rounded-full" src="/assets/ugo.jpg" alt="avatar">
+                    <img class=" h-10 object-cover rounded-full" src="/assets/ugo.jpg" alt="avatar">
                 </a>
             </div>
-            <div class="col-span-11">
+            <div class="flex-shrink shadow-lg p-4 rounded w-full">
                 <h2 class="font-bold text-gray-900"><%= review.user.name %>さん</h2>
                 <div class="text-gray-500">
                     <p><span class="bg-gray-200 rounded px-2 mr-2">予算</span><%= review.price%>円　<span class="bg-gray-200 rounded px-2 mr-2">評価</span><%= review.rate%></p>
                 </div>
-                <p class="mt-2"><%= review.comment%></p>
+                <p class="break-all"><%= review.comment %></p>
+              
+               
+                <% if review.image.attached? %>
+                    <figure class="mt-2 mx-auto">
+                        <%= image_tag review.image.variant(resize_to_limit: [300, 300]), class: "rounded" %>
+                    </figure>
+                <% end %>
             </div>
             
-           
-                
         </div>
-         
+        
     <% end %>
 </div>
