@@ -6,15 +6,17 @@
         
         <%=form_with model: @review, class: 'space-y-3' do |f|%>
             <div>
-                <%= f.label :price, '金額',class: 'font-medium text-gray-700'%>
-                <%= f.number_field :price ,class: 'w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>
+                <%= f.label :price, '金額(必須)',class: 'font-medium text-gray-700'%>
+                <p class="mt-2"><span id="current-price" class="border border-gray-300 py-1 px-3 min-w-full text-gray-900 rounded">0</span>円</p>
+                <%= f.range_field :price, min: 0, max: 10000, step: 500, id: "price", value: 0, class: "w-full mt-2"%>
             </div>
             <div>
-                <%= f.label :rate, '評価' ,class:' font-medium text-gray-700' %>
-                <%= f.number_field :rate, class: 'w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>
+                <%= f.label :rate, '評価(必須)',class: 'font-medium text-gray-700'%>
+                <p class="mt-2"><span id="current-rate" class="border border-gray-300 py-1 px-3 min-w-full text-gray-900 rounded">0</span></p>
+                <%= f.range_field :rate, min: 5, max: 10, step: 1, id: "rate", value: 5, class: "w-full mt-2"%>
             </div>
             <div>
-                <%= f.label :comment, 'コメント' ,class:' font-medium text-gray-700' %>
+                <%= f.label :comment, 'コメント(必須)' ,class:' font-medium text-gray-700' %>
                 <%= f.text_area :comment, class: 'w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' %>
             </div>
             <div>
@@ -26,3 +28,4 @@
         <% end %>
     </div>
 </div>
+<%= javascript_pack_tag 'review/form_range' %>

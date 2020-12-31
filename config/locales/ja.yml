@@ -8,6 +8,13 @@ ja:
       eatery:
         name: 店名
         addres: 住所
+        parking: 駐車可能台数
+        image: 画像
+      revies:
+        price: 金額
+        rate: 評価
+        comment: コメント
+        
   views:
     pagination:
       first: 最初

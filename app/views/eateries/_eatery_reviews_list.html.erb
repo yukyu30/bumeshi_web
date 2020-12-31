@@ -1,12 +1,12 @@
 <div class="max-w-7xl mx-auto">
     <% @reviews.each do |review| %>
-        <div class="mt-4  mx-2 flex justify-start bg-gray-50">
-            <div class="flex-shrink-0 w-10 mr-4">
+        <div class="mt-4  mx-2 flex justify-start">
+            <div class="flex-shrink-0 w-12 mr-4">
                 <a class="items-center" href="#">
-                    <img class=" h-10 object-cover rounded-full" src="/assets/ugo.jpg" alt="avatar">
+                    <img class=" h-12 object-cover rounded-full" src="/assets/rice.jpg" alt="avatar">
                 </a>
             </div>
-            <div class="flex-shrink shadow-lg p-4 rounded w-full">
+            <div class="flex-shrink shadow-lg p-4 rounded w-full bg-gray-50">
                 <h2 class="font-bold text-gray-900"><%= review.user.name %>さん</h2>
                 <div class="text-gray-500">
                     <p><span class="bg-gray-200 rounded px-2 mr-2">予算</span><%= review.price%>円　<span class="bg-gray-200 rounded px-2 mr-2">評価</span><%= review.rate%></p>
@@ -20,8 +20,6 @@
                     </figure>
                 <% end %>
             </div>
-            
         </div>
-        
     <% end %>
 </div>

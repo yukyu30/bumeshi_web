@@ -52,7 +52,7 @@ class EateriesController < ApplicationController
     private
     
     def eatery_params
-        params.require(:eatery).permit(:name, :addres, :latitude, :longitude, :parking, :url, :gnav_id, payment_ids: [], category_ids: [])
+        params.require(:eatery).permit(:name, :addres, :latitude, :longitude, :parking, :url, :gnav_id, :image, payment_ids: [], category_ids: [])
     end
     def gnavi_freeword_search(querey)
         q = querey

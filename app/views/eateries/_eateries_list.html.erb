@@ -3,7 +3,11 @@
             
                 <div class="max-w-full rounded overflow-hidden shadow-lg flex-grow bg-gray-50">
                     <%= link_to eatery do %>
-                        <img class="w-full" src="https://pbs.twimg.com/media/EpA3s0zUwA0QZ1s?format=jpg&name=large" alt="<%= eatery.name %>">
+                        <% if eatery.image.attached? %>
+                            <%= image_tag eatery.image.variant(gravity: :center, resize:"640x320^", crop:"640x360+0+0"), alt: eatery.name %>
+                        <% else %>
+                            <img  src="https://pbs.twimg.com/media/EpA3s0zUwA0QZ1s?format=jpg&name=large" alt="<%= eatery.name %>">
+                         <% end %>
                      <% end %>
                     <div class="grid gap-3 grid-cols-1 px-6 py-3">
                         <%= link_to eatery do %>
