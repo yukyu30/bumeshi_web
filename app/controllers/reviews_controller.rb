@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
         review.image.purge;
         review.delete
         flash[:notice] = "レビューを削除しました"
-        redirect_to review.eatery
+        redirect_back fallback_location: review.eatery
     end
     
     private

@@ -31255,6 +31255,14 @@ video {
   color: rgba(220, 38, 38, var(--tw-text-opacity));
 }
 
+.subtitle{
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  --tw-text-opacity: 1;
+  color: rgba(17, 24, 39, var(--tw-text-opacity))
+}
+
 .text{
   --tw-text-opacity: 1;
   color: rgba(31, 41, 55, var(--tw-text-opacity))

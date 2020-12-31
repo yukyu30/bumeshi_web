@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     
   end
   def me
-   
+    @reviews = Review.where(user_id: session[:user_id])
   end
   
   private
