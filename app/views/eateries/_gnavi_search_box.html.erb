@@ -1,6 +1,6 @@
 <div class="flex justify-center mt-2">
     <div class="w-form py-7 p-2">
-        <h2>登録したいお店の名前を入力してください</h2>
+        <h2>登録したいお店の名前や地名を入力してください</h2>
         <%= form_with url:'/eateries/find', method: :get, class: 'space-y-2 mt-2' do |f|%>
             <div>
                 <%= f.text_field :query, placeholder: " #{@query.nil? ? 'フリーワード' : @query} ", class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'%>

@@ -1,7 +1,7 @@
 class EateriesController < ApplicationController
     
     def index
-        @eateries = Eatery.page(params[:page])
+        @eateries = Eatery.recent(50).page(params[:page])
     end
     def new
         if params[:name].present? and params[:address].present?
@@ -41,8 +41,8 @@ class EateriesController < ApplicationController
        @reviews = Review.where(eatery_id: params[:id])
     end
     
-    def recent
-       @eateries = Eatery.recent(50).page(params[:page])
+    def all
+       @eateries = Eatery.page(params[:page])
     end
     def search
         @query = params[:query]

@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   get 'reviews/new', to: 'reviews#new'
-  get 'reviews/destory', to: 'reviews#destory'
+  get 'reviews/destroy', to: 'reviews#destory'
   resources :reviews, only: [:new, :create, :destroy]
   #eateriesコントローラ
   
   get 'eateries', to:'eateries#index'#飲食店一覧ページ
   get 'eateries/new', to: 'eateries#new'#飲食店を登録するページ
   get 'eateries/find', to: 'eateries#find'#APIで店舗を検索した結果を表示するページ
-  get 'eateries/recent', to: 'eateries#recent'
+  get 'eateries/all', to: 'eateries#all'
   get 'eateries/category', to: 'eateries#category'
   get 'eateries/search', to: 'eateries#search'#bumeshiに登録されているデータを検索する
   post 'eateries', to:'eateries#create'
