@@ -23,6 +23,14 @@ class ReviewsController < ApplicationController
         end
     end
     
+    def destroy
+        review = Review.find(params[:id])
+        review.image.purge;
+        review.delete
+        flash[:notice] = "レビューを削除しました"
+        redirect_to review.eatery
+    end
+    
     private
     
     def review_params

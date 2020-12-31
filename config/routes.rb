@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'reviews/new', to: 'reviews#new'
+  get 'reviews/destory', to: 'reviews#destory'
   resources :reviews, only: [:new, :create, :destroy]
   #eateriesコントローラ
   
