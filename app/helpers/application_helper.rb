@@ -12,7 +12,6 @@ module ApplicationHelper
           og: {
             site_name: :site,
             title: :title,
-            image: image_path('ogp.jpg'),
             description: :description,
             type: 'website',
             url: :canonical,
