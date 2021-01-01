@@ -12,13 +12,14 @@ module ApplicationHelper
           og: {
             site_name: :site,
             title: :title,
+            image: image_url('/assets/ogp_sra.jpg'),
             description: :description,
             type: 'website',
             url: :canonical,
             locale: 'ja_JP',
           },
           twitter: {
-            card: 'summary_large_image',
+            card: 'summary',
           }
         }
     end
