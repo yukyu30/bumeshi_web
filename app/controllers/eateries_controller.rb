@@ -39,6 +39,7 @@ class EateriesController < ApplicationController
     def show
        @eatery = Eatery.find(params[:id])
        @reviews = Review.where(eatery_id: params[:id])
+       @image_url = rails_representation_url(@eatery.image.variant(gravity: :center, resize:"1200x630^", crop:"1280x720+0+0"))
     end
     
     def all
