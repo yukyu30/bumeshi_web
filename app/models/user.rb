@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_many :reviews
+    has_one_attached :avatar
     has_secure_password
     
     validates :name,

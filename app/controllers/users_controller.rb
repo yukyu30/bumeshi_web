@@ -14,15 +14,21 @@ class UsersController < ApplicationController
       redirect_back fallback_location: root_path
     end
   end
+  
+  def update
+    user = User.find(@current_user.id)
+    user.update(user_params)
+    redirect_back fallback_location: mypage_path
+  end
   def auth
     
   end
   def me
-    @reviews = Review.where(user_id: session[:user_id])
+    @reviews = Review.where(user_id: @current_user.id)
   end
   
   private
   def user_params
-    params.require(:user).permit(:name, :password, :password_confirmation)
+    params.require(:user).permit(:name, :password, :password_confirmation, :avatar)
   end
 end

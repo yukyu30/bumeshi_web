@@ -3,7 +3,7 @@
         <h2>登録したいお店の名前や地名を入力してください</h2>
         <%= form_with url:'/eateries/find', method: :get, class: 'space-y-2 mt-2' do |f|%>
             <div>
-                <%= f.text_field :query, placeholder: " #{@query.nil? ? 'フリーワード' : @query} ", class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'%>
+                <%= f.text_field :query, placeholder: " #{@gnavi_query.nil? ? 'フリーワード' : @gnavi_query} ", value: @gnavi_query, class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'%>
                 
             </div>
             <%= f.submit '検索', name: nil, class: 'w-full flex justify-center py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500' %>

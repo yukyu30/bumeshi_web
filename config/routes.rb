@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   #usersコントローラ　
   get 'mypage', to:'users#me'#mypageにアクセスでuserコントローラのmeが呼ばれる
   get 'signup', to:'users#new'
-  resources :users, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create, :destroy, :update]
   
   #sessionsコントローラ 主にログイン状態の保持のために使用
   get 'login', to: 'sessions#new'

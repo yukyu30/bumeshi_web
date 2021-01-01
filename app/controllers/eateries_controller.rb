@@ -21,8 +21,8 @@ class EateriesController < ApplicationController
         end
     end
     def find
-        @query = params[:query]
-        @gnavi_eateries = gnavi_freeword_search(@query)
+        @gnavi_query = params[:query]
+        @gnavi_eateries = gnavi_freeword_search(@gnavi_query)
     end
     def create
         eatery = Eatery.new(eatery_params)

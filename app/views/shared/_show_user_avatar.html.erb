@@ -1,0 +1,5 @@
+ <% if avatar.attached? %>
+  <%=img_tag avatar, class:"w-12 h-12 object-cover rounded-full", alt: "avatar"%>
+ <% else %>
+  <img class=" h-12 object-cover rounded-full" src="/assets/rice.jpg" alt="avatar">
+ <% end %>

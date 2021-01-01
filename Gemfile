@@ -31,10 +31,12 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem "dotenv-rails"
 # Use Amazon S3
 gem "aws-sdk-s3", require: false
-
+# generate OGP
+gem 'meta-tags'
 group :production do
   # Use PostgreSQL 1.2.3
   gem 'pg', '1.2.3'
+  
 end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
