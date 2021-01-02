@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.from_omniauth(@omiauth, params[:name])
+    @user = User.from_omniauth(request.env["omniauth.auth"], params[:name])
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_path
