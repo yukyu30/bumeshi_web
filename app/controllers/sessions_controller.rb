@@ -1,11 +1,20 @@
 class SessionsController < ApplicationController
+  def new
+    @auth = request.env["omniauth.auth"]
+    @user = User.find_by(provider: @auth.provider, uid: @auth.uid) #ユーザーの認証
+    if @user.preset? 
+      redirect_to create_session_path #userが存在するのでログイン処理へ
+    else
+      redirect_to new_user_path
+    end
+  end
   def create
-    user = User.find_by(name: params[:session][:name])
-    if user && user.authenticate(params[:session][:password])
-      session[:user_id] = user.id
+    if @user.preset?
+      session[:user_id] = @user.id
       redirect_to mypage_path
     else
-       redirect_back fallback_location: root_path
+      redirect_to new_session_path#ログインに失敗した場合のリダイレクト先
+      flash[:notice] ="問題が発生しました。やり直ししてください"
     end
   end
 

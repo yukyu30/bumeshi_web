@@ -26,9 +26,11 @@ gem 'image_processing', '~> 1.2'
 
 gem 'mini_magick'
 
+gem 'omniauth-google-oauth2'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-gem "dotenv-rails"
+
 # Use Amazon S3
 gem "aws-sdk-s3", require: false
 # generate OGP
@@ -43,6 +45,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
+  
+  gem "dotenv-rails"
 end
 
 group :development do

@@ -1,16 +1,14 @@
 class User < ApplicationRecord
     has_many :reviews
-    has_one_attached :avatar
-    has_secure_password
-    
-    validates :name,
-        presence: true, #必須項目
-        uniqueness: true, #重複するIDなし
-        length: { maximum: 32 },
-        format: {
-            with: /\A[a-z0-9_]+\z/,
-            message: 'は小文字英数字,アンダーバーで入力してください'
-        }
-    validates :password,
-        length: { minimum: 8 }
+    def self.from_omniauth(auth, name)
+        where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
+            user.provider = auth.provider
+            user.uid = auth.uid
+            user.name = name
+            user.image = auth.info.image
+            user.oauth_token = auth.credentials.token
+            user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+            return user
+        end
+    end
 end

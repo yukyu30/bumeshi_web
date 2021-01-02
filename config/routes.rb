@@ -17,14 +17,15 @@ Rails.application.routes.draw do
   
   #usersコントローラ　
   get 'mypage', to:'users#me'#mypageにアクセスでuserコントローラのmeが呼ばれる
-  get 'signup', to:'users#new'
-  resources :users, only: [:new, :create, :destroy, :update]
+  get 'users/new', to:'user#new', as:'onbording' #ユーザーの新規作成に必要な情報を入力する 
+  get 'auth/:provider/callback', to: 'user#create' #ユーザーを登録する
+  resources :users, only: [:new, :create]
   
   #sessionsコントローラ 主にログイン状態の保持のために使用
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  delete 'logout', to:'sessions#destroy'
-  
+  delete 'signout', to:'sessions#destroy', as: 'singout'
+  get 'auth/:provider/callback', to: 'sessions#new', as: 'signin' #ユーザーデータベースにユーザーが存在するか
+  get 'auth/failure', to: redirect('/')
+  resources :sessions, only: [:new, :create, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'eateries#index' 
   
