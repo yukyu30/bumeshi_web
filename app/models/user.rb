@@ -11,7 +11,7 @@ class User < ApplicationRecord
         end
     end
     def self.save_omniauth(auth, name)
-        where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
+        where(provider: auth[:provider], uid: auth[:uid]).first_or_initialize.tap do |user|
             user.provider = auth[:provider]
             user.uid = auth[:uid]
             user.name = name
