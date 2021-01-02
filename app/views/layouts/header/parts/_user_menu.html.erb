@@ -3,6 +3,6 @@
         <%= link_to 'マイページ', mypage_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
         <%= link_to 'サインアウト', signout_path, method: :delete, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
     <% else %>
-        <%= link_to 'サインイン', "/auth", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
+        <%= link_to 'サインイン', "/auth/google_oauth2", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
     <% end %>
 </div>

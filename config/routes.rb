@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   
   #sessionsコントローラ 主にログイン状態の保持のために使用
   delete 'signout', to:'sessions#destroy', as: 'signout'
-  get 'auth/callback', to: 'sessions#new', as: 'signin' #ユーザーデータベースにユーザーが存在するか
+  get 'auth/google_oauth2/callback', to: 'sessions#new', as: 'signin' #ユーザーデータベースにユーザーが存在するか
   get 'auth/failure', to: redirect('/')
   resources :sessions, only: [:new, :create, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
