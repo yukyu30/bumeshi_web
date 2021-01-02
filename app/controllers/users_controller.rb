@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
   
   def new
-    @user = User.new(flash[:user]);
+    
   end
 
   def create
