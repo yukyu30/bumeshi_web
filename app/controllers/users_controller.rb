@@ -1,10 +1,22 @@
 class UsersController < ApplicationController
+  def signin
+    @auth = request.env["omniauth.auth"]
+    @user = User.find_by(provider: @auth.provider, uid: @auth.uid) #ユーザーの認証
+    if @user.present? 
+      session[:user_id] = @user.id
+     
+      redirect_to mypage_path
+    else
+      redirect_to new_user_path
+    end
+  end
+  
   def new
     @user = User.new(flash[:user]);
   end
 
   def create
-    @user = User.new(user_params(flash[:auth]))
+    @user = User.new(user_params(@auth))
     if user.save #userを正常に登録できた場合
       
       redirect_to create_session_path #セッションを作成
