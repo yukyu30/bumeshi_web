@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def signin
-    @omiauth = User.save_auth_info(request.env["omniauth.auth"]) #googleから返された情報を格納
+    @omiauth = User.get_auth_info(request.env["omniauth.auth"]) #googleから返された情報を格納
     user = User.find_by(provider: @omiauth.provider, uid: @omiauth.uid)
     if user.present?
       session[:user_id] = user.id
