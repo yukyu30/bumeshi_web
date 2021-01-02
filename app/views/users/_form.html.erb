@@ -1,6 +1,6 @@
 <div class="flex justify-center">
     <%= link_to 'サインイン', "/auth/google_oauth2", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
-    <!--<div class="w-form p-7 bg-white rounded shadow-xl">
+    <div class="w-form p-7 bg-white rounded shadow-xl">
         <p>BUMESHI内でのユーザー名を入力してください。ユーザー名は公開されます</p>
         <%= render 'shared/error_message' %>
         <%=form_with model: @user, class: 'space-y-6' do |f|%>
@@ -10,5 +10,5 @@
             </div>
             <%= f.submit '登録', class: 'group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500' %>
         <% end %>
-    </div> -->
+    </div>
 </div>
