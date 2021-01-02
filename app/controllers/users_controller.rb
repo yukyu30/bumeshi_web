@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def signin
     @auth = request.env["omniauth.auth"]
-    @user = User.find_by(provider: @auth.provider, uid: @auth.uid) #ユーザーの認証
+    @user = User.find_by(uid: @auth.uid) #ユーザーの認証
     if @user.present? 
       session[:user_id] = @user.id
      
@@ -40,6 +40,6 @@ class UsersController < ApplicationController
   
   private
   def user_params
-    params.require(:user).permit(:name).merge(provider: @auth.provider, uid: @auth.uid, image: @auth.image, oauth_token: @auth.credentials.token, oauth_expires_at: Time.at(@auth.credentials.expires_at))
+    params.require(:user).permit(:name).(uid: @auth.uid, image: @auth.image, oauth_token: @auth.credentials.token, oauth_expires_at: Time.at(@auth.credentials.expires_at))
   end
 end
