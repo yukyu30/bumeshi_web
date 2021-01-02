@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params(@auth))
+    @user = User.new(user_params)
     if user.save #userを正常に登録できた場合
       redirect_to mypage_path #セッションを作成
     else
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   end
   
   private
-  def user_params(auth)
-    params.require(:user).permit(:name).merge(provider: auth.provider, uid: auth.uid, image: auth.image, oauth_token: auth.credentials.token, oauth_expires_at: Time.at(auth.credentials.expires_at))
+  def user_params
+    params.require(:user).permit(:name).merge(provider: @auth.provider, uid: @auth.uid, image: @auth.image, oauth_token: @auth.credentials.token, oauth_expires_at: Time.at(@auth.credentials.expires_at))
   end
 end
