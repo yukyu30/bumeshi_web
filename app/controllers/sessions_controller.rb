@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    session[:auth] = request.env["omniauth.auth"]
+    flash[:auth] = request.env["omniauth.auth"]
     @user = User.find_by(provider: session[:auth].provider, uid: session[:auth].uid) #ユーザーの認証
     if @user.present? 
       redirect_to create_session_path #userが存在するのでログイン処理へ
@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   def create
     if @user.preset?
       session[:user_id] = @user.id
-      session.delete(:auth)
+     
       redirect_to mypage_path
     else
       redirect_to new_session_path#ログインに失敗した場合のリダイレクト先
