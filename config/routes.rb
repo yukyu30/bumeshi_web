@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   #usersコントローラ　
   get 'mypage', to: 'users#me'#mypageにアクセスでuserコントローラのmeが呼ばれる
   get 'users/new', to: 'users#new', as:'onbording' #ユーザーの新規作成に必要な情報を入力する 
-  post 'users/create', to: 'user#create' #ユーザーを登録する
+  post 'users', to: 'user#create' #ユーザーを登録する
   resources :users, only: [:new, :create]
   
   #sessionsコントローラ 主にログイン状態の保持のために使用

@@ -4,8 +4,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params(@auth))
+    @user = User.new(user_params(session[:auth]))
     if user.save #userを正常に登録できた場合
+      
       redirect_to create_session_path #セッションを作成
     else
       flash[:user] = user
