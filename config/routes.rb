@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   
   #usersコントローラ　
   get 'mypage', to: 'users#me'#mypageにアクセスでuserコントローラのmeが呼ばれる
-  get 'auth/google_oauth2/callback', to: 'sessions#init', as: 'signin'
+  get 'auth/google_oauth2/callback', to: 'users#init'
   get 'users/new', to: 'users#new', as:'onbording' #ユーザーの新規作成に必要な情報を入力する 
   post 'users', to: 'user#create' #ユーザーを登録する
   resources :users, only: [:new, :create]
@@ -25,8 +25,8 @@ Rails.application.routes.draw do
   #sessionsコントローラ 主にログイン状態の保持のために使用
   delete 'signout', to:'sessions#destroy', as: 'signout'
   #get 'auth/google_oauth2/callback', to: 'sessions#new', as: 'signin' #ユーザーデータベースにユーザーが存在するか
-  get 'auth/failure', to: redirect('/')
-  resources :sessions, only: [:new, :create, :destroy]
+  #get 'auth/failure', to: redirect('/')
+  #resources :sessions, only: [:new, :create, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'eateries#index' 
   
