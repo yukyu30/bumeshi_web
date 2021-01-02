@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params(@omniauth))
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_path
@@ -30,8 +30,8 @@ class UsersController < ApplicationController
   end
   
   private
-  def user_params
-    params.require(:user).permit(:name).merge(provider: @omniauth["provider"], uid: @omniauth["uid"], image: @omniauth["image"], oauth_token: @omniauth["oauth_token"], oauth_expires_at: @omniauth["oauth_expires_at"])
+  def user_params(**auth)
+    params.require(:user).permit(:name).merge(provider: auth["provider"], uid: auth["uid"], image: auth["image"], oauth_token: auth["oauth_token"], oauth_expires_at: auth["oauth_expires_at"])
   end
   
 end
