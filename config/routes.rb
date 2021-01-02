@@ -17,13 +17,13 @@ Rails.application.routes.draw do
   
   #usersコントローラ　
   get 'mypage', to: 'users#me'#mypageにアクセスでuserコントローラのmeが呼ばれる
-  #get 'auth/google_oauth2/callback', to: 'users#signin'
+  get 'auth/:provider/callback', to: 'users#signin' 
   #get 'users/new', to: 'users#new', as:'onbording' #ユーザーの新規作成に必要な情報を入力フォームを表示
   #post 'users', to: 'users#create' #ユーザーを登録する
   resources :users, only: [:new, :create]
   
   #sessionsコントローラ 主にログイン状態の保持のために使用
-  get 'auth/:provider/callback', to: 'sessions#create'
+  #get 'auth/:provider/callback', to: 'sessions#create'
   delete 'signout', to:'sessions#destroy', as: 'signout'
   #get 'auth/google_oauth2/callback', to: 'sessions#new', as: 'signin' #ユーザーデータベースにユーザーが存在するか
   #get 'auth/failure', to: redirect('/')

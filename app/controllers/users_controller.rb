@@ -1,11 +1,10 @@
 class UsersController < ApplicationController
   def signin
-    @auth = request.env["omniauth.auth"]
-    @user = User.find_by(uid: @auth.uid) #ユーザーの認証
-    if @user.present? 
-      session[:user_id] = @user.id
-     
-      redirect_to mypage_path
+    @omiauth = request.env["omniauth.auth"] #googleから返された情報を格納
+    user = User.find_by(provider: @omiauth.provider, uid: @omniauth.uid)
+    if user.present?
+      session[:user_id] = user.id
+      redirect_to root_path
     else
       redirect_to new_user_path
     end
@@ -16,24 +15,16 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if user.save #userを正常に登録できた場合
-      redirect_to mypage_path #セッションを作成
+    user = User.from_omniauth(@omiauth, params[:name])
+    if user.save
+      session[:user_id] = user.id
+      redirect_to root_path
     else
-      flash[:user] = user
-      flash[:error_messages] = user.errors.full_messages
-      redirect_back fallback_location: root_path
+      redirect_to new_user_path
     end
   end
   
-  def update
-    user = User.find(@current_user.id)
-    user.update(user_params)
-    redirect_back fallback_location: mypage_path
-  end
-  def auth
-    
-  end
+
   def me
     @reviews = Review.where(user_id: @current_user.id)
   end
