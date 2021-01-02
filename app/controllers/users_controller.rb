@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   
   private
   def user_params
-    params.require(:user).permit(:name).(provider: @omniauth["provider"], uid: @omniauth["uid"], image: @omniauth["image"], oauth_token: @omniauth["oauth_token"], oauth_expires_at: @omniauth["oauth_expires_at"])
+    params.require(:user).permit(:name).merge(provider: @omniauth["provider"], uid: @omniauth["uid"], image: @omniauth["image"], oauth_token: @omniauth["oauth_token"], oauth_expires_at: @omniauth["oauth_expires_at"])
   end
   
 end
