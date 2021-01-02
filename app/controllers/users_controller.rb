@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def signin
-    @omniauth = User.get_auth_info(request.env["omniauth.auth"]) #googleから返された情報を格納
+    @omniauth = User.convert_omniauth(request.env["omniauth.auth"]) #googleから返された情報を格納
     user = User.find_by(provider: @omniauth[:provider], uid: @omniauth[:uid])
     if user.present?
       session[:user_id] = user.id
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.save_omniauth(@omniauth, params[:name])
+    @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_path
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   
   private
   def user_params
-    params.require(:user).permit(:name).(uid: @auth.uid, image: @auth.image, oauth_token: @auth.credentials.token, oauth_expires_at: Time.at(@auth.credentials.expires_at))
+    params.require(:user).permit(:name).(provider: @omniauth[:provider], uid: @omniauth[:uid], image: @omniauth[:image], oauth_token: @omniauth[:oauth_token], oauth_expires_at: @omniauth[:oauth_expires_at])
   end
   
 end

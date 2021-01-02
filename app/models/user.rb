@@ -10,18 +10,8 @@ class User < ApplicationRecord
             return user
         end
     end
-    def self.save_omniauth(auth, name)
-        where(provider: auth[:provider], uid: auth[:uid]).first_or_initialize.tap do |user|
-            user.provider = auth[:provider]
-            user.uid = auth[:uid]
-            user.name = name
-            user.image = auth[:image]
-            user.oauth_token = auth[:oauth_token]
-            user.oauth_expires_at = auth[:oauth_expires_at]
-            return user
-        end
-    end
-    def self.get_auth_info(auth)
+
+    def self.convert_omniauth(auth)
         auth_info = {
           provider: auth.provider,
           uid: auth.uid,
