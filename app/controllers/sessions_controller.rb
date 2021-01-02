@@ -9,13 +9,12 @@ class SessionsController < ApplicationController
     end
   end
   def create
-    if @user.preset?
-      session[:user_id] = @user.id
-     
-      redirect_to mypage_path
+    user = User.from_omniauth(request.env["omniauth.auth"])
+    if user.save
+      session[:user_id] = user.id
+      redirect_to root_path
     else
-      redirect_to new_session_path#ログインに失敗した場合のリダイレクト先
-      flash[:notice] ="問題が発生しました。やり直ししてください"
+      redirect_to new_session_path
     end
   end
 
