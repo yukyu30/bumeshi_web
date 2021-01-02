@@ -18,11 +18,11 @@ Rails.application.routes.draw do
   #usersコントローラ　
   get 'mypage', to:'users#me'#mypageにアクセスでuserコントローラのmeが呼ばれる
   get 'users/new', to:'user#new', as:'onbording' #ユーザーの新規作成に必要な情報を入力する 
-  get 'auth/:provider/callback', to: 'user#create' #ユーザーを登録する
+  get 'users/create', to: 'user#create' #ユーザーを登録する
   resources :users, only: [:new, :create]
   
   #sessionsコントローラ 主にログイン状態の保持のために使用
-  delete 'signout', to:'sessions#destroy', as: 'singout'
+  delete 'signout', to:'sessions#destroy', as: 'signout'
   get 'auth/:provider/callback', to: 'sessions#new', as: 'signin' #ユーザーデータベースにユーザーが存在するか
   get 'auth/failure', to: redirect('/')
   resources :sessions, only: [:new, :create, :destroy]
