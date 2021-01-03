@@ -1,23 +1,30 @@
 class UsersController < ApplicationController
   def signin
-    @auth = request.env["omniauth.auth"]
-    @user = User.find_by(uid: @auth.uid) #ユーザーの認証
-    if @user.present? 
-      session[:user_id] = @user.id
-     
-      redirect_to mypage_path
+    @user = User.from_omniauth(request.env["omniauth.auth"])
+    if @user.save
+      if @user.name.nil?
+        session[:provider] = @user.provider
+        session[:uid] = @user.uid
+        redirect_to new_user_path
+      else
+        session[:user_id] = @user.id
+        redirect_to root_path
+      end
     else
-      redirect_to new_user_path
+      redirect_to root_path
     end
+   
   end
   
   def new
-    @user = User.new(flash[:user]);
+    @user = User.find_by(provider: session[:provider], uid: session[:uid])
   end
 
   def create
-    @user = User.new(user_params)
+    user = User.find_by(provider: session[:provider], uid: session[:uid])
+    user.update(user_params)
     if user.save #userを正常に登録できた場合
+      session[:user_id] = user.id
       redirect_to mypage_path #セッションを作成
     else
       flash[:user] = user
@@ -27,7 +34,7 @@ class UsersController < ApplicationController
   end
   
   def update
-    user = User.find(@current_user.id)
+    user = User.find_by(provider: @userinfo.provider, uid: @userinfo.uid)
     user.update(user_params)
     redirect_back fallback_location: mypage_path
   end
@@ -40,6 +47,6 @@ class UsersController < ApplicationController
   
   private
   def user_params
-    params.require(:user).permit(:name).(uid: @auth.uid, image: @auth.image, oauth_token: @auth.credentials.token, oauth_expires_at: Time.at(@auth.credentials.expires_at))
+    params.require(:user).permit(:name)
   end
 end
