@@ -44,7 +44,9 @@ class UsersController < ApplicationController
   def me
     @reviews = Review.where(user_id: @current_user.id)
   end
+  def enter
   
+  end
   private
   def user_params
     params.require(:user).permit(:name)

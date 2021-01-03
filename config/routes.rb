@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   
   #usersコントローラ　
   get 'mypage', to: 'users#me'#mypageにアクセスでuserコントローラのmeが呼ばれる
+  get 'users/enter', to: 'users#enter'
   get 'auth/:provider/callback', to: 'users#signin'
   patch 'users/create', to: 'users#create'
   resources :users, only: [:new, :create]
