@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'users/enter', to: 'users#enter'
   get 'auth/:provider/callback', to: 'users#signin'
   patch 'users/create', to: 'users#create'
+  post 'aikotoa', to: 'users#aikotoba'
   resources :users, only: [:new, :create]
   
   #sessionsコントローラ 主にログイン状態の保持のために使用

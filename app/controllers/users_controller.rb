@@ -47,6 +47,14 @@ class UsersController < ApplicationController
   def enter
   
   end
+  def aikotoba
+    if params[:key] == "yukyu30"
+      redirect_to '/auth/google_oauth2'
+    else
+      redirect_to root_path
+      flash[:notice] = "エラー"
+    end
+  end
   private
   def user_params
     params.require(:user).permit(:name)
