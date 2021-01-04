@@ -1,5 +1,4 @@
 module.exports = {
-   purge: ['./views/*'],
   plugins: [
     require('postcss-import'),
     require('postcss-flexbugs-fixes'),
