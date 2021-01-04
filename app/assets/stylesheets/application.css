@@ -2,7 +2,6 @@
 
 input[type="submit"],
 input[type="button"] {
-  border-radius: 0;
   -webkit-box-sizing: content-box;
   -webkit-appearance: button;
   -moz-appearance: button;
