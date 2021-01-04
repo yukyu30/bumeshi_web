@@ -2,9 +2,9 @@ module.exports = {
   purge: {
     enabled: true,
     content:[
-      './app/views/**/*.html.erb',
-      './app/views/layouts/header/*.html.erb',
-      './app/views/layouts/header/parts/*.html.erb'
+      './app/views/**/*.erb',
+      './app/views/layouts/header/*.erb',
+      './app/views/layouts/header/parts/*.erb'
       
     ]
   },
