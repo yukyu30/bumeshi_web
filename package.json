@@ -15,9 +15,9 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.1"
   },
   "scripts": {
-    "build": "npx tailwindcss-cli@latest build ./lib/css/tailwind.css -o ./app/assets/stylesheets/application.css"
+    "build-tailwind": "npx tailwindcss-cli@latest build ./lib/css/tailwind.css -o ./app/assets/stylesheets/application.css"
   }
 }
