@@ -18,6 +18,6 @@
     "webpack-dev-server": "^3.11.1"
   },
   "scripts": {
-    "build": "npx tailwindcss-cli@latest build ./lib/css/tailwind.css -o ./app/assets/stylesheets/application.css"
+    "build-tailwind": "npx tailwindcss-cli@latest build ./lib/css/tailwind.css -o ./app/assets/stylesheets/application.css"
   }
 }
