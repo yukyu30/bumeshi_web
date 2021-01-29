@@ -27,7 +27,7 @@ class EateriesController < ApplicationController
     def create
         eatery = Eatery.new(eatery_params)
         if eatery.save 
-            flash[:notice] = "#{eatery.name}を登録しました！"
+            flash[:notice] = "#{eatery.name}を登録しました😘"
             redirect_to eatery_url(id: eatery.id)
         else
             flash[:eatery] = eatery
