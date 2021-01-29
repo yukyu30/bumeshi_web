@@ -22,6 +22,11 @@ class WantsController < ApplicationController
     def index
         @wants = Want.where(user_id: @current_user.id)
     end
+    
+    def public
+         @wants = Want.where(user_id: params[:uid])
+         @user = User.find(uid: params[:uid])
+    end
     def destroy
         want= Want.find(params[:id])
         want.delete

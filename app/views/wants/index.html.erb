@@ -5,10 +5,7 @@
             <h1 class="title">行きたいお店リスト</h1>
         </div>
         <%= link_to wants_new_path, class:"flex-initial m-5 bg-red-600 hover:bg-red-400 text-gray-50 px-2 rounded" do %>+お店を追加<% end %>
-        <%= link_to "https://twitter.com/share?", class:"flex-initial mx-1 my-5 bg-blue-400 text-gray-50 px-2 rounded hover:bg-blue-200" do %>Twitterでシェア<% end %>
-        
-       
-        
+        <%= link_to "https://twitter.com/share?url=https://bumeshi-eat.herokuapp.com/wants/public?uid=#{@current_user.id}/&text=#{@current_user.name}さんの行きたいお店リスト", class:"flex-initial mx-1 my-5 bg-blue-400 text-gray-50 px-2 rounded hover:bg-blue-200" do %>Twitterでシェア<% end %>
     </div>
     
     <%= render partial: 'wants/wants_list' %>
