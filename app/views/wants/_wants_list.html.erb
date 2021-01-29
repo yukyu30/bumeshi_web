@@ -1,0 +1,22 @@
+<div class="max-w-7xl mx-auto">
+    <% @wants.each do |want| %>
+        <div class="mt-4  mx-2 flex justify-start">
+            <div class="flex-shrink shadow-lg p-4 rounded w-full bg-gray-50">
+                <h2 class="font-bold text-gray-900"><%= want.eatery_name %></h2>
+                <p class="text-gray-500 mt-2"><span class="bg-gray-200 rounded px-2 mr-2">住所</span><%= want.eatery_addres%></p>
+            
+                <p class="break-all text-gray-500 mt-2"><span class="bg-gray-200 rounded px-2 mr-2">メモ</span><%= want.memo %></p>
+              
+                <div class="action-menu mt-2">
+                    <% if @current_user.present? and want.user.id == @current_user.id%>
+                        <%= link_to want, method: :delete, data: {confirm: 'このお店をリストから削除してもよろしいですか？'} do %>
+                            <svg class="w-4 text-gray-400 hover:text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        <% end %>
+                    <% end %>
+                </div> 
+            </div>
+        </div>
+    <% end %>
+</div>
