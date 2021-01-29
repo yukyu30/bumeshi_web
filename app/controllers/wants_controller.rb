@@ -1,7 +1,7 @@
 class WantsController < ApplicationController
     def new
         if session[:user_id].blank?
-            flash[:notice] = "ユーザー情報が確認できません"
+            flash[:alert] = "ユーザー情報が確認できません"
             redirect_to "/users/enter"
         else
            @want= Want.new(flash[:want])
