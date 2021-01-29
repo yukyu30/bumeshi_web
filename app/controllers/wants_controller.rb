@@ -24,8 +24,8 @@ class WantsController < ApplicationController
     end
     
     def public
-         @wants = Want.where(user_id: params[:uid])
-         @user = User.find(uid: params[:uid])
+         @wants = Want.where(user_id: params[:id])
+         @user = User.find(params[:id])
     end
     def destroy
         want= Want.find(params[:id])

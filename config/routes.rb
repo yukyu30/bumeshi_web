@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   
   get 'wants/new', to: 'wants#new'
-  get 'want/public', to: 'wants#public'
+  get 'wants/public', to: 'wants#public'
   get 'wants/destroy', to: 'wants#destory'
   get 'wants/list', to: 'wants#index'
   resources :wants, only: [:new, :create, :destroy, :show]
