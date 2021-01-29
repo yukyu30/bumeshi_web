@@ -23,6 +23,11 @@ Rails.application.routes.draw do
   post 'aikotoa', to: 'users#aikotoba'
   resources :users, only: [:new, :create]
   
+  get 'wants/new', to: 'wants#new'
+  get 'wants/destroy', to: 'wants#destory'
+  get 'wants/list', to: 'wants#index'
+  resources :wants, only: [:new, :create, :destroy, :show]
+  
   #sessionsコントローラ 主にログイン状態の保持のために使用
   #get 'auth/:provider/callback', to: 'sessions#create'
   delete 'signout', to:'sessions#destroy', as: 'signout'

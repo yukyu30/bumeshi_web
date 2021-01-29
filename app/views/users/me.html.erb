@@ -2,6 +2,13 @@
     <h1 class="title">マイページ</h1>
         <h2 class="mt-2 text-red-600 text-lg">登録情報</h2>
             ユーザー名：<%= @current_user.name %>
+        
+        <div class="mt-5">
+            <%= link_to wants_list_path, class: "text-center rounded bg-red-600 hover:bg-red-400 text-gray-50 p-2" do %>
+                行きたいお店リスト
+            <% end %>
+        </div>
+            
         <h2 class="mt-5 text-red-600 text-lg">投稿したレビュー</h2>
             <%= render partial: 'reviews/reviews_list_with_eatery_name' %>
 </div>

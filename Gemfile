@@ -47,6 +47,7 @@ group :development, :test do
   gem 'sqlite3', '~> 1.4'
   
   gem "dotenv-rails"
+   gem 'rails-erd'
 end
 
 group :development do
@@ -60,6 +61,7 @@ group :development do
   gem 'spring'
   gem 'pry-byebug'
   gem 'annotate'
+ 
 end
 
 group :test do

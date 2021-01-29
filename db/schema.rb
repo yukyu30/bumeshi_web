@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_02_101656) do
+ActiveRecord::Schema.define(version: 2021_01_26_152355) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -94,8 +94,26 @@ ActiveRecord::Schema.define(version: 2021_01_02_101656) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
-# Could not dump table "users" because of following StandardError
-#   Unknown type 'uuid' for column 'id'
+  create_table "users", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.string "name"
+    t.string "image"
+    t.string "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "wants", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "eatery_name", null: false
+    t.string "eatery_addres"
+    t.string "memo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_wants_on_user_id"
+  end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
@@ -105,4 +123,5 @@ ActiveRecord::Schema.define(version: 2021_01_02_101656) do
   add_foreign_key "eatery_payment_relations", "payments"
   add_foreign_key "reviews", "eateries"
   add_foreign_key "reviews", "users"
+  add_foreign_key "wants", "users"
 end
