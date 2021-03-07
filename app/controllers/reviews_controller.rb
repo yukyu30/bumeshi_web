@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
     def new
         @eatery = Eatery.find(params[:eatery_id])
         if session[:user_id].blank?
-            flash[:notice] = "コメントをするためにはユーザー登録をお願いします"
+            flash[:alert] = "コメントをするためにはユーザー登録をお願いします"
             redirect_to "/users/enter"
         else
             @eatery_id = params[:eatery_id]
@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     def create
         review = Review.new(review_params)
         if review.save
-            flash[:notice] = "レビューを投稿しました"
+            flash[:notice] = "レビューを投稿しました✏"
             redirect_to review.eatery
         else
             flash[:review] = review
@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
         review = Review.find(params[:id])
         review.image.purge;
         review.delete
-        flash[:notice] = "レビューを削除しました"
+        flash[:notice] = "レビューを削除しました🗑"
         redirect_back fallback_location: review.eatery
     end
     
