@@ -79,3 +79,4 @@ yarn-debug.log*
 /config/credentials/production.key
 /config/credentials/*.key
 /config/credentials/development.key
+rails-app.zip
