@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def signin
-    @user = User.from_omniauth(request.env["omniauth.auth"]) #Googleへ認証をリクエスト
+    @user = User.from_omniauth(request.env["omniauth.auth"]) 
     if @user.save
       if @user.name.nil?
         session[:provider] = @user.provider
