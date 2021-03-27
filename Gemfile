@@ -35,6 +35,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem "aws-sdk-s3", require: false
 # generate OGP
 gem 'meta-tags'
+gem 'pg', '1.2.3'
 group :production do
   # Use PostgreSQL 1.2.3
   gem 'pg', '1.2.3'
@@ -44,7 +45,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3'
   
   gem "dotenv-rails"
    gem 'rails-erd'
