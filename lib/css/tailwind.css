@@ -65,7 +65,6 @@ input[type="button"]::focus {
   
 }
 .text-line-1{
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
