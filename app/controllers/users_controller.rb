@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     
   end
   def enter
-  
+    flash[:alert] = "一部の機能を利用するためにはログインが必須となります"
   end
   def aikotoba
     if params[:key] == "yukyu30"
