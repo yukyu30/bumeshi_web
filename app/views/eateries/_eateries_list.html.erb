@@ -6,7 +6,7 @@
                         <% if eatery.image.attached? %>
                             <%= image_tag eatery.image.variant(gravity: :center, resize:"640x320^", crop:"640x360+0+0"), alt: eatery.name %>
                         <% else %>
-                        <iimage_tag "notfound_image.jpg"  alt="<%= eatery.name %>">
+                        <image_tag "notfound_image.jpg"  alt="<%= eatery.name %>">
                          <% end %>
                      <% end %>
                     <div class="grid gap-3 grid-cols-1 px-6 py-3">
