@@ -64,3 +64,9 @@ input[type="button"]::focus {
   background-attachment: fixed;
   
 }
+.text-line-1{
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
