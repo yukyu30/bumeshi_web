@@ -1,7 +1,7 @@
 class EateriesController < ApplicationController
     
     def index
-        @eateries = Eatery.where.not(image: [nil, '']).recent(50).page(params[:page])
+        @eateries = Eatery.recent(50).page(params[:page])
     end
     def new
         if params[:name].present? and params[:address].present?
